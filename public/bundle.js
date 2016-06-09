@@ -24424,25 +24424,43 @@
 	var Home = __webpack_require__(212);
 	var Router = __webpack_require__(159);
 	var Route = Router.Route;
+	var IndexRoute = Router.IndexRoute;
 
-	module.exports = React.createElement(Route, { path: '/', component: Main });
+	module.exports = React.createElement(
+		Route,
+		{ path: '/', component: Main },
+		React.createElement(IndexRoute, { component: Home })
+	);
 
 /***/ },
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
 
 	var Main = React.createClass({
-		displayName: 'Main',
+		displayName: "Main",
 
 		render: function render() {
 			return React.createElement(
-				'div',
-				null,
-				'Hello World'
+				"div",
+				{ className: "main-container" },
+				React.createElement(
+					"nav",
+					{ className: "navbar navbar-default", role: "navigation" },
+					React.createElement(
+						"div",
+						{ className: "col-sm-7 col-sm-offset-2", style: { marginTop: 15 } },
+						"Menu"
+					)
+				),
+				React.createElement(
+					"div",
+					{ className: "container" },
+					this.props.children
+				)
 			);
 		}
 	});
@@ -24468,6 +24486,8 @@
 			);
 		}
 	});
+
+	module.exports = Home;
 
 /***/ }
 /******/ ]);
